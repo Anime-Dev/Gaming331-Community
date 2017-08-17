@@ -8,7 +8,7 @@ var Fun = function () {
             AddCommand("pantsu", PERM.permissions.rolenames.everyone, that.pantsu);
             AddCommand("ping", PERM.permissions.rolenames.everyone, that.ping);
             AddCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
-            AddCommand("theclaw", PERM.permissions.rolenames.everyone, that.thecalw);
+            AddCommand("theclaw", PERM.permissions.rolenames.everyone, that.theclaw);
             return that;
         },
         UnRegister: function (RemoveCommand) {
@@ -18,7 +18,7 @@ var Fun = function () {
             RemoveCommand("pantsu", PERM.permissions.rolenames.everyone, that.pantsu);
             RemoveCommand("ping", PERM.permissions.rolenames.everyone, that.ping);
             RemoveCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
-            RemoveCommand("theclaw", PERM.permissions.rolenames.everyone, that.thecalw);
+            RemoveCommand("theclaw", PERM.permissions.rolenames.everyone, that.theclaw);
             return that;
         },
         pet: function (command, args, message) {
