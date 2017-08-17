@@ -10,6 +10,7 @@ var Fun = function () {
         UnRegister: function (RemoveCommand) {
             RemoveCommand("pet", PERM.permissions.everyone, that.pet);
             RemoveCommand("C#", PERM.permissions.everyone, that.cs);
+            RemoveCommand("funpic", PERM.permissions.rolenames.everyone, that.funpic);
             return that;
         },
         pet: function (command, args, message) {
