@@ -23,10 +23,10 @@ var register = function () {
         UnRegister: function (RemoveCommand, ModuleHandler) {
             //No need to clean up modules manually
             var tasks = [];
-            for (var i = 0; i < modules.length; i++) {
+            for (var i = 0; i < that.modules.length; i++) {
                 tasks.push(ModuleHandler.RemoveModule(modules[i]));
             }
-            modules = [];
+            that.modules = [];
             return tasks.reduce(Q.when, Q(true));
         }
     };
