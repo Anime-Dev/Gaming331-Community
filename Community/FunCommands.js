@@ -6,6 +6,8 @@ var Fun = function () {
             AddCommand("C#", PERM.permissions.rolenames.everyone, that.cs);
             AddCommand("funpic", PERM.permissions.rolenames.everyone, that.funpic);
             AddCommand("pantsu", PERM.permissions.rolenames.everyone, that.pantsu);
+            AddCommand("ping", PERM.permissions.rolenames.everyone, that.ping);
+            AddCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
             return that;
         },
         UnRegister: function (RemoveCommand) {
@@ -13,6 +15,8 @@ var Fun = function () {
             RemoveCommand("C#", PERM.permissions.everyone, that.cs);
             RemoveCommand("funpic", PERM.permissions.rolenames.everyone, that.funpic);
             RemoveCommand("pantsu", PERM.permissions.rolenames.everyone, that.pantsu);
+            RemoveCommand("ping", PERM.permissions.rolenames.everyone, that.ping);
+            RemoveCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
             return that;
         },
         pet: function (command, args, message) {
@@ -30,6 +34,14 @@ var Fun = function () {
         pantsu: function (command, args, message) {
             message.delete().catch(console.error);
             message.channel.send(PERM.channels.GetEmoji("forsenpuke") + "  " + message.author + "\n" + PERM.channels.GetEmoji("pantsu"));
+        },
+        ping: function (command, args, message) {
+            message.delete().catch(console.error);
+            message.channel.send('Pong');
+        },
+        hug: function (command, args, message) {
+            message.delete().catch(console.error);
+            message.channel.send(message.member + " hugs " + args.join(' ') + " " + PERM.channels.GetEmoji("bingHeart"));
         },
     };
     return that;
