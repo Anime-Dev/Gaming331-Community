@@ -29,7 +29,7 @@ var Fun = function () {
         },
         pantsu: function (command, args, message) {
             message.delete().catch(console.error);
-            message.channel.send("<:forsenpuke:347784871722221568>  " + message.author + "\n<:pantsu:347784909991182336>");
+            message.channel.send(PERM.channels.GetEmoji("forsenpuke") + "  " + message.author + "\n" + PERM.channels.GetEmoji("pantsu"));
         },
     };
     return that;
