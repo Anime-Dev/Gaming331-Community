@@ -8,6 +8,7 @@ var Fun = function () {
             AddCommand("pantsu", PERM.permissions.rolenames.everyone, that.pantsu);
             AddCommand("ping", PERM.permissions.rolenames.everyone, that.ping);
             AddCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
+            AddCommand("theclaw", PERM.permissions.rolenames.everyone, that.thecalw);
             return that;
         },
         UnRegister: function (RemoveCommand) {
@@ -17,6 +18,7 @@ var Fun = function () {
             RemoveCommand("pantsu", PERM.permissions.rolenames.everyone, that.pantsu);
             RemoveCommand("ping", PERM.permissions.rolenames.everyone, that.ping);
             RemoveCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
+            RemoveCommand("theclaw", PERM.permissions.rolenames.everyone, that.thecalw);
             return that;
         },
         pet: function (command, args, message) {
@@ -42,6 +44,10 @@ var Fun = function () {
         hug: function (command, args, message) {
             message.delete().catch(console.error);
             message.channel.send(message.member + " hugs " + args.join(' ') + " " + PERM.channels.GetEmoji("bingHeart"));
+        },
+        theclaw: function (command, args, message) {
+            message.delete().catch(console.error);
+            message.channel.send(message.member + ": http://i.imgur.com/XpowyN2.jpg");
         },
     };
     return that;
