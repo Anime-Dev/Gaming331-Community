@@ -1,7 +1,7 @@
 var PERM = require('../Perms');
 var Q = require('q');
 //var Sample = require('Sample');
-var Fun = require('FunCommands');
+var Fun = require('./FunCommands');
 
 
 var register = function () {
@@ -9,7 +9,7 @@ var register = function () {
         modules: [],
         Register: function (AddCommand, ModuleHandler) {
             var RegisterModule = function (m) {
-                that.Modules.push(m);
+                that.modules.push(m);
                 ModuleHandler.AddModule(m);
             }
 
