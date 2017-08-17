@@ -24,7 +24,7 @@ var register = function () {
             //No need to clean up modules manually
             var tasks = [];
             for (var i = 0; i < that.modules.length; i++) {
-                tasks.push(ModuleHandler.RemoveModule(modules[i]));
+                tasks.push(ModuleHandler.RemoveModule(that.modules[i]));
             }
             that.modules = [];
             return tasks.reduce(Q.when, Q(true));
