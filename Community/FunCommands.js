@@ -25,7 +25,7 @@ var Fun = function () {
         },
         pet: function (command, args, message) {
             message.delete().catch(console.error);
-            message.channel.send(message.member + " pets " + args.join(' '));
+            message.channel.send(message.member + " pets " + args.join(' ') + PERM.channels.GetEmoji("petme"));
         },
         cs: function (command, args, message) {
             message.delete().catch(console.error);
