@@ -31,6 +31,7 @@ var Pemissions = {
 }
 var channels = {
     guildname: "Gaming-331",
+    isBeta: function () { return channels.guildname != "Gaming-331"; },
     guild: null,
     channelnames: {
         botchannel: "botstuff",
