@@ -3,6 +3,7 @@ var Q = require('q');
 //var Sample = require('Sample');
 var Fun = require('./FunCommands');
 var Help = require('./Help');
+var Welcome = require('./Welcome');
 
 
 var register = function () {
@@ -18,6 +19,7 @@ var register = function () {
             //RegisterModule(Sample());
             RegisterModule(Fun());
             RegisterModule(Help());
+            RegisterModule(Welcome());
 
 
             return that;
