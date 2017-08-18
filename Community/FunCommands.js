@@ -13,7 +13,6 @@ var Fun = function () {
             return that;
         },
         UnRegister: function (RemoveCommand) {
-            RemoveCommand("agree",PERM.permissions.everyone,that.agree);
             RemoveCommand("pet", PERM.permissions.everyone, that.pet);
             RemoveCommand("C#", PERM.permissions.everyone, that.cs);
             RemoveCommand("funpic", PERM.permissions.rolenames.everyone, that.funpic);
@@ -21,11 +20,12 @@ var Fun = function () {
             RemoveCommand("ping", PERM.permissions.rolenames.everyone, that.ping);
             RemoveCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
             RemoveCommand("theclaw", PERM.permissions.rolenames.everyone, that.theclaw);
+            RemoveCommand("agree",PERM.permissions.everyone,that.agree);
             return that;
         },
         pet: function (command, args, message) {
             message.delete().catch(console.error);
-            message.channel.send(message.member + " pets " + args.join(' ') + PERM.channels.GetEmoji("petme"));
+            message.channel.send(message.member + " pets " + args.join(' ') + ' ' + PERM.channels.GetEmoji("petme"));
         },
         cs: function (command, args, message) {
             message.delete().catch(console.error);
@@ -48,13 +48,13 @@ var Fun = function () {
             message.delete().catch(console.error);
             message.channel.send(message.member + " hugs " + args.join(' ') + " " + PERM.channels.GetEmoji("bingHeart"));
         },
-        agree: function (command, args, message) {
-            message.delete().catch(console.error);
-            message.channel.send(message.member + " agrees to " + args.join(' ') + " " + PERM.channels.GetEmoji("thumbsup"));
-        },
         theclaw: function (command, args, message) {
             message.delete().catch(console.error);
             message.channel.send(message.member + ": http://i.imgur.com/XpowyN2.jpg");
+        },
+        agree: function (command, args, message) {
+            message.delete().catch(console.error);
+            message.channel.send(message.member + " agrees to " + args.join(' ') + " :thumbsup:");
         },
     };
     return that;
