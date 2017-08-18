@@ -10,6 +10,7 @@ var Fun = function () {
             AddCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
             AddCommand("theclaw", PERM.permissions.rolenames.everyone, that.theclaw);
             AddCommand("agree",PERM.permissions.rolenames.everyone,that.agree);
+            AddCommand("8ball",PERM.permissions.rolenames.everyone,that.8ball);
             return that;
         },
         UnRegister: function (RemoveCommand) {
@@ -21,6 +22,7 @@ var Fun = function () {
             RemoveCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
             RemoveCommand("theclaw", PERM.permissions.rolenames.everyone, that.theclaw);
             RemoveCommand("agree",PERM.permissions.rolenames.everyone,that.agree);
+            RemoveCommand("8ball",PERM.permissions.rolenames.everyone,that.8ball);
             return that;
         },
         pet: function (command, args, message) {
@@ -55,6 +57,19 @@ var Fun = function () {
         agree: function (command, args, message) {
             message.delete().catch(console.error);
             message.channel.send(message.member + " agrees to " + args.join(' ') + " :thumbsup:");
+        },
+        8ball: function (command, args, message) {
+            var answers = ["Yes, definitely","No!","Ask again later","Signs point to no","Signs point to yes","Are you kidding me?","LMAO",":100:","You may rely on it"]
+            message.delete().catch(console.error);
+            message.channel.send({embed: {
+              color: 3447003,
+              author: {
+                name: message.author.username,
+                icon_url: message.author.avatarURL
+              },
+              title: args.join(' '),
+              description: answers[Math.round(Math.random() * answers.length)],
+            }});
         },
     };
     return that;
