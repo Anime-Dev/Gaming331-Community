@@ -9,7 +9,7 @@ var Fun = function () {
             AddCommand("ping", PERM.permissions.rolenames.everyone, that.ping);
             AddCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
             AddCommand("theclaw", PERM.permissions.rolenames.everyone, that.theclaw);
-            AddCommand("agree",PERM.permissions.everyone,that.agree);
+            AddCommand("agree",PERM.permissions.rolenames.everyone,that.agree);
             return that;
         },
         UnRegister: function (RemoveCommand) {
@@ -20,7 +20,7 @@ var Fun = function () {
             RemoveCommand("ping", PERM.permissions.rolenames.everyone, that.ping);
             RemoveCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
             RemoveCommand("theclaw", PERM.permissions.rolenames.everyone, that.theclaw);
-            RemoveCommand("agree",PERM.permissions.everyone,that.agree);
+            RemoveCommand("agree",PERM.permissions.rolenames.everyone,that.agree);
             return that;
         },
         pet: function (command, args, message) {
