@@ -10,7 +10,7 @@ var Fun = function () {
             AddCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
             AddCommand("theclaw", PERM.permissions.rolenames.everyone, that.theclaw);
             AddCommand("agree",PERM.permissions.rolenames.everyone,that.agree);
-            AddCommand("8ball",PERM.permissions.rolenames.everyone,that.8ball);
+            AddCommand("ask",PERM.permissions.rolenames.everyone,that.ask);
             return that;
         },
         UnRegister: function (RemoveCommand) {
@@ -22,7 +22,7 @@ var Fun = function () {
             RemoveCommand("hug", PERM.permissions.rolenames.everyone, that.hug);
             RemoveCommand("theclaw", PERM.permissions.rolenames.everyone, that.theclaw);
             RemoveCommand("agree",PERM.permissions.rolenames.everyone,that.agree);
-            RemoveCommand("8ball",PERM.permissions.rolenames.everyone,that.8ball);
+            RemoveCommand("ask",PERM.permissions.rolenames.everyone,that.ask);
             return that;
         },
         pet: function (command, args, message) {
@@ -58,7 +58,7 @@ var Fun = function () {
             message.delete().catch(console.error);
             message.channel.send(message.member + " agrees to " + args.join(' ') + " :thumbsup:");
         },
-        8ball: function (command, args, message) {
+        ask: function (command, args, message) {
             var answers = ["Yes, definitely","No!","Ask again later","Signs point to no","Signs point to yes","Are you kidding me?","LMAO",":100:","You may rely on it"]
             message.delete().catch(console.error);
             message.channel.send({embed: {
