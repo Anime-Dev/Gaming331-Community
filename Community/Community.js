@@ -2,6 +2,7 @@ var PERM = require('../Perms');
 var Q = require('q');
 //var Sample = require('Sample');
 var Fun = require('./FunCommands');
+var Help = require('./Help');
 
 
 var register = function () {
@@ -16,6 +17,7 @@ var register = function () {
             //register the module here after require'ing
             //RegisterModule(Sample());
             RegisterModule(Fun());
+            RegisterModule(Help());
 
 
             return that;
