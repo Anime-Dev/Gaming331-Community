@@ -83,8 +83,10 @@ var Fun = function () {
                         name: message.author.username,
                         icon_url: message.author.avatarURL
                     },
-                    title: args.join(' '),
-                    description: eightBallAnswers[Math.round(Math.random() * eightBallAnswers.length)],
+                    fields: [{
+                        name: args.join(' '),
+                        value: eightBallAnswers[Math.round(Math.random() * eightBallAnswers.length)]
+                    }],
                 }
             });
         },
