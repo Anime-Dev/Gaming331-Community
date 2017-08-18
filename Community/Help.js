@@ -9,7 +9,7 @@ var help = function () {
     };
     var that = {
         Register: function (AddCommand) {
-            ModuleHandler.AddCommand("help", PERM.permissions.rolenames.everyone, function (command, args, message) {
+            AddCommand("help", PERM.permissions.rolenames.everyone, function (command, args, message) {
                 message.delete().catch(console.error);
                 if (args.length > 0) {
                     if (helptext[args[0]] !== undefined){
@@ -27,7 +27,7 @@ var help = function () {
             return that;
         },
         UnRegister: function (RemoveCommand) {
-            ModuleHandler.RemoveCommand("help", PERM.permissions.rolenames.everyone);
+            RemoveCommand("help", PERM.permissions.rolenames.everyone);
             return that;
         }
     };
