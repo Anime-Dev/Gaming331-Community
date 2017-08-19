@@ -20,13 +20,13 @@ var status = function () {
         },
         UnRegister: function (RemoveCommand) {
             //ALWAYS clean up commands
-            LastStatus = undefined;
+            that.LastStatus = undefined;
             RemoveCommand("status", PERM.permissions.rolenames.Admin);
             return that;
         },
         Status: function (add) {
             if (that.LastStatus) {
-                add(LastStatus);
+                add(that.LastStatus);
             }
             return add;
         }
