@@ -4,6 +4,7 @@ var Q = require('q');
 var Fun = require('./FunCommands');
 var Help = require('./Help');
 var Welcome = require('./Welcome');
+var Status = require('./Status');
 
 
 var register = function () {
@@ -20,6 +21,7 @@ var register = function () {
             RegisterModule(Fun());
             RegisterModule(Help());
             RegisterModule(Welcome());
+            RegisterModule(Status());
 
 
             return that;
