@@ -14,4 +14,7 @@ var ModuleHandler = {
     RemoveCommand(name, perm, func) {
         //you still reading this?
     },
+    StatusUpdate(){
+        //what do you think this does? Alert santa?
+    },
 };

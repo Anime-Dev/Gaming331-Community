@@ -3,12 +3,17 @@ var PERM = require('../Perms');
 var status = function () {
     var that = {
         LastStatus: undefined,
-        Register: function (AddCommand) {
+        Register: function (AddCommand, ModuleHandler) {
             AddCommand("status", PERM.permissions.rolenames.Admin, function (command, args, message) {
                 message.delete().catch(console.error);
                 var stat = args.join(' ');
                 if (stat && stat !== "" && stat !== "clear") {
                     that.LastStatus = stat;
+                    ModuleHandler.StatusUpdate();
+                }
+                else {
+                    that.LastStatus = undefined;
+                    ModuleHandler.StatusUpdate();
                 }
             });
             return that;
