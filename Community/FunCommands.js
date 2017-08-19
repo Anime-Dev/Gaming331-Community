@@ -1,10 +1,10 @@
 var PERM = require('../Perms');
 var Fun = function () {
-    var funpicImages = ["WoW for cats: https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif",
-        "Bert is gonna be pissed: https://i.pinimg.com/736x/da/76/e8/da76e8f92ffa7561bc99be733a714c57--funny-shit-funny-pics.jpg",
-        "The cat burned the charger: https://i.pinimg.com/736x/c1/65/02/c16502e626ed0f8c3537beec610e7ac6--funny-pets-funny-animals.jpg",
-        "https://s-media-cache-ak0.pinimg.com/736x/f7/14/a3/f714a35f92de708f56d2aa3bd7a5edbe--evil-cats-candles.jpg",
-        "keemstar has been deleted: http://www.maneki-neko.nl/memes/Keemstar%20deleted.jpg"]
+    var funpicImages = [["WoW for cats:","https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif"],
+        ["Bert is gonna be pissed:","https://i.pinimg.com/736x/da/76/e8/da76e8f92ffa7561bc99be733a714c57--funny-shit-funny-pics.jpg"],
+        ["The cat burned the charger:","https://i.pinimg.com/736x/c1/65/02/c16502e626ed0f8c3537beec610e7ac6--funny-pets-funny-animals.jpg"],
+        ["","https://s-media-cache-ak0.pinimg.com/736x/f7/14/a3/f714a35f92de708f56d2aa3bd7a5edbe--evil-cats-candles.jpg"],
+        ["keemstar has been deleted:","http://www.maneki-neko.nl/memes/Keemstar%20deleted.jpg"]]
     var eightBallAnswers = [
         "You may rely on it",
         "As I see it, yes",
@@ -68,7 +68,14 @@ var Fun = function () {
         },
         funpic: function (command, args, message) {
             message.delete().catch(console.error);
-            message.channel.send(funpicImages[Math.round(Math.random() * funpicImages.length)]);
+            var answer = funpicImages[Math.round(Math.random() * funpicImages.length)];
+            const embed = new Discord.RichEmbed();
+            embed.setColor(3447003);
+            embed.setImage(answer[1]);
+            if (answer[0] !== "") {
+                embed.addField(answer[0])
+            }
+            message.channel.send({embed})
         },
         pantsu: function (command, args, message) {
             message.delete().catch(console.error);
