@@ -8,7 +8,7 @@ var help = function () {
         //start: "use `$start` to to start the Minecraft server should it be down (this is still WIP).",
     };
     var that = {
-        Register: function (AddCommand) {
+        Register: function (Add, AddCommand, ModuleHandler) {
             AddCommand("help", PERM.permissions.rolenames.everyone, function (command, args, message) {
                 message.delete().catch(console.error);
                 if (args.length > 0) {
@@ -26,7 +26,7 @@ var help = function () {
             }, [PERM.channels.channelnames.botchannel]);
             return that;
         },
-        UnRegister: function (RemoveCommand) {
+        UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
             RemoveCommand("help", PERM.permissions.rolenames.everyone);
             return that;
         }

@@ -34,7 +34,7 @@ var Fun = function () {
         "Not sure about that one :eyes:"
     ];
     var that = {
-        Register: function (AddCommand) {
+        Register: function (Add, AddCommand, ModuleHandler) {
             AddCommand("pet", PERM.permissions.rolenames.everyone, that.pet);
             AddCommand("C#", PERM.permissions.rolenames.everyone, that.cs);
             AddCommand("funpic", PERM.permissions.rolenames.everyone, that.funpic);
@@ -46,7 +46,7 @@ var Fun = function () {
             AddCommand("8ball", PERM.permissions.rolenames.everyone, that.eightball);
             return that;
         },
-        UnRegister: function (RemoveCommand) {
+        UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
             RemoveCommand("pet", PERM.permissions.everyone, that.pet);
             RemoveCommand("C#", PERM.permissions.everyone, that.cs);
             RemoveCommand("funpic", PERM.permissions.rolenames.everyone, that.funpic);

@@ -17,14 +17,14 @@ module.exports = function () {
     };
     var that = {
         ModuleName: "sampleModule",
-        Register: function (AddCommand, ModuleHandler) {
+        Register: function (Add, AddCommand, ModuleHandler) {
             //this will make a command $command that runs the f function when anyone (everyone+) uses the command in botstuff
             //it will also convert the word "from" in the arguments to "to" in the arguments given to function f
             //AddCommand("command", PERM.permissions.rolenames.everyone, that.f, [PERM.config.channels.botchannel], [["from", "to"]]);
             ModuleHandler.Add(sample);
             return that;
         },
-        UnRegister: function (RemoveCommand, ModuleHandler) {
+        UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
             //ALWAYS clean up commands
             //RemoveCommand("command", PERM.permissions.rolenames.everyone, that.f);
             ModuleHandler.Remove(sample);

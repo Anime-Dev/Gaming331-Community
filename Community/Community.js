@@ -10,7 +10,7 @@ var Status = require('./Status');
 var register = function () {
     var that = {
         modules: [],
-        Register: function (AddCommand, ModuleHandler) {
+        Register: function (Add, AddCommand, ModuleHandler) {
             var RegisterModule = function (m) {
                 that.modules.push(m);
                 ModuleHandler.AddModule(m);
@@ -26,7 +26,7 @@ var register = function () {
 
             return that;
         },
-        UnRegister: function (RemoveCommand, ModuleHandler) {
+        UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
             //No need to clean up modules manually
             var tasks = [];
             for (var i = 0; i < that.modules.length; i++) {

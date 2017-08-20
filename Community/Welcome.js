@@ -3,7 +3,7 @@ var PERM = require('../Perms');
 //var Q = require('q');
 var welcome = function () {
     var that = {
-        Register: function (AddCommand) {
+        Register: function (Add, AddCommand, ModuleHandler) {
             PERM.channels.guild.client.on("guildMemberAdd", that.MemberAdd);
             if (PERM.channels.isBeta()){
                 AddCommand("fakejoin", PERM.permissions.rolenames.everyone, function (command, args, message) {
@@ -13,7 +13,7 @@ var welcome = function () {
             }
             return that;
         },
-        UnRegister: function (RemoveCommand) {
+        UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
             PERM.channels.guild.client.removeListener("guildMemberAdd", that.MemberAdd);
             if (PERM.channels.isBeta()){
                 RemoveCommand("fakejoin", PERM.permissions.rolenames.everyone);
