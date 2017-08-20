@@ -16,12 +16,17 @@ var status = function () {
                     ModuleHandler.StatusUpdate();
                 }
             });
+            AddCommand("say", PERM.permissions.rolenames.Admin, function (command, args, message) {
+                message.delete().catch(console.error);
+                message.channel.send(args.join(' '));
+            });
             return that;
         },
         UnRegister: function (RemoveCommand) {
             //ALWAYS clean up commands
             that.LastStatus = undefined;
             RemoveCommand("status", PERM.permissions.rolenames.Admin);
+            RemoveCommand("say", PERM.permissions.rolenames.Admin);
             return that;
         },
         Status: function (add) {
