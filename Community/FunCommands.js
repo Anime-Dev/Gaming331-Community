@@ -1,15 +1,4 @@
 var PERM = require('../Perms');
-<<<<<<< HEAD
-var Fun = function () {
-    var funpicImages = ["WoW for cats: https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif",
-        "Bert is gonna be pissed: https://i.pinimg.com/736x/da/76/e8/da76e8f92ffa7561bc99be733a714c57--funny-shit-funny-pics.jpg",
-        "The cat burned the charger: https://i.pinimg.com/736x/c1/65/02/c16502e626ed0f8c3537beec610e7ac6--funny-pets-funny-animals.jpg",
-        "https://s-media-cache-ak0.pinimg.com/736x/f7/14/a3/f714a35f92de708f56d2aa3bd7a5edbe--evil-cats-candles.jpg",
-        "Keemstar has been deleted: http://www.maneki-neko.nl/memes/Keemstar%20deleted.jpg",
-        "Luckly i dont see This goat's hands :facepalm: : http://cdn.playbuzz.com/cdn/c1ffedc1-2f64-4503-8c91-689bb8c48218/8325ab64-99f2-4ce1-9da3-c98b8ae7e395.jpg",
-        "When u ry killing a admin in a MMORPG: https://lh3.googleusercontent.com/-ZTy0vB70kuM/UwwQwBMmEoI/AAAAAAAAAU8/Xgo2TJlLVwY/w426-h240/angel_beats_gif_animation_4_by_black_wolf_90-d4ifmsj.gif",
-    "When u just jumped form a boat and the water gets drained: http://vignette4.wikia.nocookie.net/filthy-frank/images/a/a5/Pink_guy.gif","when u find out ur dog had the shits: http://i0.kym-cdn.com/photos/images/facebook/000/000/578/1234931504682.jpg"];
-=======
 //var ALIAS = require('../Alias');
 //var Q = require('q');
 module.exports = function () {
@@ -18,11 +7,10 @@ module.exports = function () {
     ["Wrong spell:", "https://i.pinimg.com/736x/c1/65/02/c16502e626ed0f8c3537beec610e7ac6--funny-pets-funny-animals.jpg"],
     ["The cat burned the charger:", "https://s-media-cache-ak0.pinimg.com/736x/f7/14/a3/f714a35f92de708f56d2aa3bd7a5edbe--evil-cats-candles.jpg"],
     ["Keemstar has been deleted:", "http://www.maneki-neko.nl/memes/Keemstar%20deleted.jpg"],
-    ["Luckly i dont see This goat's hands:", "http://cdn.playbuzz.com/cdn/c1ffedc1-2f64-4503-8c91-689bb8c48218/8325ab64-99f2-4ce1-9da3-c98b8ae7e395.jpg"],
+    ["Luckly I dont see This goat's hands:", "http://cdn.playbuzz.com/cdn/c1ffedc1-2f64-4503-8c91-689bb8c48218/8325ab64-99f2-4ce1-9da3-c98b8ae7e395.jpg"],
     ["When u try killing a admin in a MMORPG:", "https://lh3.googleusercontent.com/-ZTy0vB70kuM/UwwQwBMmEoI/AAAAAAAAAU8/Xgo2TJlLVwY/w426-h240/angel_beats_gif_animation_4_by_black_wolf_90-d4ifmsj.gif"],
-    ["When u just jumped from a boat with a surfboard ment to protect you but actually kills you and the water gets drained:", "http://vignette4.wikia.nocookie.net/filthy-frank/images/a/a5/Pink_guy.gif"],
+    ["When u just jumped from a boat with a surfboard meant to protect you but actually kills you and the water gets drained:", "http://vignette4.wikia.nocookie.net/filthy-frank/images/a/a5/Pink_guy.gif"],
     ["when u find out ur dog had the shits:", "http://i0.kym-cdn.com/photos/images/facebook/000/000/578/1234931504682.jpg"]];
->>>>>>> 625e9f0baa3e8572d2a19bcc5e6b9a8c0758aef6
     var eightBallAnswers = [
         "You may rely on it",
         "As I see it, yes",
