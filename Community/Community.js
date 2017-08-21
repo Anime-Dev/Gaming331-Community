@@ -5,6 +5,7 @@ var Fun = require('./FunCommands');
 var Help = require('./Help');
 var Welcome = require('./Welcome');
 var Status = require('./Status');
+var Explosm = require('./Explosm');
 
 
 var register = function () {
@@ -22,6 +23,7 @@ var register = function () {
             RegisterModule(Help());
             RegisterModule(Welcome());
             RegisterModule(Status());
+            RegisterModule(Explosm());
 
 
             return that;
