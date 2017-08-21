@@ -7,7 +7,7 @@ var Fun = function () {
         "Keemstar has been deleted: http://www.maneki-neko.nl/memes/Keemstar%20deleted.jpg",
         "Luckly i dont see This goat's hands :facepalm: : http://cdn.playbuzz.com/cdn/c1ffedc1-2f64-4503-8c91-689bb8c48218/8325ab64-99f2-4ce1-9da3-c98b8ae7e395.jpg",
         "When u ry killing a admin in a MMORPG: https://lh3.googleusercontent.com/-ZTy0vB70kuM/UwwQwBMmEoI/AAAAAAAAAU8/Xgo2TJlLVwY/w426-h240/angel_beats_gif_animation_4_by_black_wolf_90-d4ifmsj.gif",
-    "When u just jumped form a boad with a surfboard mending to protect u but actualy killing u and the water gets drained: http://vignette4.wikia.nocookie.net/filthy-frank/images/a/a5/Pink_guy.gif","when u find out ur dog had the shits: http://i0.kym-cdn.com/photos/images/facebook/000/000/578/1234931504682.jpg"];
+    "When u just jumped form a boat and the water gets drained: http://vignette4.wikia.nocookie.net/filthy-frank/images/a/a5/Pink_guy.gif","when u find out ur dog had the shits: http://i0.kym-cdn.com/photos/images/facebook/000/000/578/1234931504682.jpg"];
     var eightBallAnswers = [
         "You may rely on it",
         "As I see it, yes",
