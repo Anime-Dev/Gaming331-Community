@@ -53,7 +53,7 @@ module.exports = function () {
                     .send();
             })
                 .catch(function () {
-                    message.replyEmbed("Something went wrong");
+                    message.replyEmbed("Something went wrong").then(mess => mess.delete(5000).catch(console.error));
                 });
         },
         Channels: [PERM.channels.channelnames.botchannel]
