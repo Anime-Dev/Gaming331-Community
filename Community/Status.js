@@ -9,7 +9,7 @@ module.exports = function () {
         WholeArgs: true,
         Permissions: PERM.permissions.rolenames.Admin,
         LastStatus: undefined,
-        Function: function (command, args, message) {
+        Function: function (command, args, message, ModuleHandler) {
             if (args && args !== "" && args !== "clear") {
                 Status.LastStatus = args;
                 ModuleHandler.StatusUpdate();
