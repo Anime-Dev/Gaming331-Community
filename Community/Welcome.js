@@ -30,13 +30,13 @@ module.exports = function () {
             if (PERM.channels.isBeta()) {
                 welcomeEmbed = message.getRichEmbed()
                     .setTitle("Hiya!")
-                    .setDiscription("Welcome " + member + " to the testing server! Be sure to read <#348032747404525569>");
+                    .setDescription("Welcome " + member + " to the testing server! Be sure to read <#348032747404525569>");
                 PERM.channels.GetChannel("general").send({embed: welcomeEmbed});
             }
             else {
                 welcomeEmbed = message.getRichEmbed()
                     .setTitle("Welcome!")
-                    .setDiscription(member + ", to see the game channels you need to have the correct roles (`$add <game>`), these will also be used to announce our events. Be sure to read " + PERM.channels.GetChannel("information") + " to get you started here, we hope you enjoy your stay!");
+                    .setDescription(member + ", to see the game channels you need to have the correct roles (`$add <game>`), these will also be used to announce our events. Be sure to read " + PERM.channels.GetChannel("information") + " to get you started here, we hope you enjoy your stay!");
                 PERM.channels.GetChannel("general").send({embed: welcomeEmbed});
             }
         }
