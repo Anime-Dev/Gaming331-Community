@@ -31,13 +31,13 @@ module.exports = function () {
                 var welcomeEmbed = message.getRichEmbed()
                     .setTitle("Hiya!")
                     .setDescription("Welcome " + member + " to the testing server! Be sure to read <#348032747404525569>");
-                PERM.channels.GetChannel("general").send({embed: welcomeEmbed});
+                PERM.channels.GetChannel("general").send(welcomeEmbed);
             }
             else {
                 var welcomeEmbed = message.getRichEmbed()
                     .setTitle("Welcome!")
                     .setDescription(member + ", to see the game channels you need to have the correct roles (`$add <game>`), these will also be used to announce our events. Be sure to read " + PERM.channels.GetChannel("information") + " to get you started here, we hope you enjoy your stay!");
-                PERM.channels.GetChannel("general").send({embed: welcomeEmbed});
+                PERM.channels.GetChannel("general").send(welcomeEmbed);
             }
         }
     };
