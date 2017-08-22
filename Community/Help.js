@@ -13,7 +13,7 @@ module.exports = function () {
                 if (cmd !== undefined){
                     message.getRichEmbed()
                     .setTitle(cmd.Name)
-                    .setDescription("Usage: " + cmd.Usage + "\r\nDescription: " + cmd.Description)
+                    .setDescription(cmd.Usage + "\r\n" + cmd.Description)
                     .send();
                     return;
                 }
