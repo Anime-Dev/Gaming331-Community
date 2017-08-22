@@ -6,8 +6,6 @@ module.exports = function () {
         Name: "fakejoin",
         Usage: "$fakejoin",
         Description: "Triggers the welcome msg",
-        KeepMessage: true,
-        WholeArgs: true,
         Function: function (command, args, message) {
             that.MemberAdd(message.member);
         },
