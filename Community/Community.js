@@ -8,13 +8,14 @@ var Status = require('./Status');
 var Explosm = require('./Explosm');
 
 
-var register = function () {
+module.exports = function () {
     var that = {
         modules: [],
+        ModuleName: "CommunityLoader",
         Register: function (Add, AddCommand, ModuleHandler) {
             var RegisterModule = function (m) {
                 that.modules.push(m);
-                ModuleHandler.AddModule(m);
+                Add(m);
             }
 
             //register the module here after require'ing
@@ -32,12 +33,11 @@ var register = function () {
             //No need to clean up modules manually
             var tasks = [];
             for (var i = 0; i < that.modules.length; i++) {
-                tasks.push(ModuleHandler.RemoveModule(that.modules[i]));
+                tasks.push(Remove(that.modules[i]));
             }
             that.modules = [];
             return tasks.reduce(Q.when, Q(true));
-        }
+        },
     };
     return that;
 };
-module.exports = register;
