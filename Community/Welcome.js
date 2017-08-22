@@ -12,7 +12,7 @@ module.exports = function () {
     };
     var that = {
         ModuleName: "Welcome",
-        Handler,
+        Handler: undefined,
         Register: function (Add, AddCommand, ModuleHandler) {
             Handler = ModuleHandler;
             PERM.channels.guild.client.on("guildMemberAdd", that.MemberAdd);
