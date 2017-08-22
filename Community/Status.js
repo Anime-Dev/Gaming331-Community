@@ -42,6 +42,12 @@ module.exports = function () {
             ModuleHandler.Remove(Say);
             return that;
         },
+        Status: function (add) {
+            if (Status.LastStatus) {
+                add(Status.LastStatus);
+            }
+            return add;
+        }
     };
     return that;
 };
