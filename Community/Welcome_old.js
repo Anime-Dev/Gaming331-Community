@@ -1,30 +1,22 @@
+//guildMemberAdd 
 var PERM = require('../Perms');
-//var ALIAS = require('../Alias');
 //var Q = require('q');
-module.exports = function () {
-    var fakeJoin = {
-        Name: "fakejoin",
-        Usage: "$fakejoin",
-        Description: "Triggers the welcome msg",
-        KeepMessage: true,
-        WholeArgs: true,
-        Function: function (command, args, message) {
-            that.MemberAdd(message.member);
-        },
-    };
+var welcome = function () {
     var that = {
-        ModuleName: "Welcome",
         Register: function (Add, AddCommand, ModuleHandler) {
             PERM.channels.guild.client.on("guildMemberAdd", that.MemberAdd);
             if (PERM.channels.isBeta()){
-                ModuleHandler.Add(fakeJoin);
+                AddCommand("fakejoin", PERM.permissions.rolenames.everyone, function (command, args, message) {
+                    message.delete().catch(console.error);
+                    that.MemberAdd(message.member);
+                });
             }
             return that;
         },
         UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
             PERM.channels.guild.client.removeListener("guildMemberAdd", that.MemberAdd);
             if (PERM.channels.isBeta()){
-                ModuleHandler.Remove(fakeJoin);
+                RemoveCommand("fakejoin", PERM.permissions.rolenames.everyone);
             }
             return that;
         },
@@ -39,3 +31,4 @@ module.exports = function () {
     };
     return that;
 };
+module.exports = welcome;

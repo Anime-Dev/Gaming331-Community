@@ -1,41 +1,47 @@
 var PERM = require('../Perms');
+//var ALIAS = require('../Alias');
 //var Q = require('q');
-var status = function () {
-    var that = {
+module.exports = function () {
+    var Status = {
+        Name: "status",
+        Usage: "$status <new status msg>",
+        Description: "Sets the status of the bot",
+        WholeArgs: true,
+        Permissions: PERM.permissions.rolenames.Admin,
         LastStatus: undefined,
+        Function: function (command, args, message) {
+            if (args && args !== "" && args !== "clear") {
+                Status.LastStatus = args;
+                ModuleHandler.StatusUpdate();
+            }
+            else {
+                that.LastStatus = undefined;
+                ModuleHandler.StatusUpdate();
+            };
+        },
+    };
+    var Say = {
+        Name: "say",
+        Usage: "$say <msg>",
+        Description: "Lets the bot say your msg",
+        WholeArgs: true,
+        Permissions: PERM.permissions.rolenames.Admin,
+        Function: function (command, args, message) {
+            message.channel.send(args);
+        },        
+    };
+    var that = {
+        ModuleName: "Status",
         Register: function (Add, AddCommand, ModuleHandler) {
-            AddCommand("status", PERM.permissions.rolenames.Admin, function (command, args, message) {
-                message.delete().catch(console.error);
-                var stat = args.join(' ');
-                if (stat && stat !== "" && stat !== "clear") {
-                    that.LastStatus = stat;
-                    ModuleHandler.StatusUpdate();
-                }
-                else {
-                    that.LastStatus = undefined;
-                    ModuleHandler.StatusUpdate();
-                }
-            });
-            AddCommand("say", PERM.permissions.rolenames.Admin, function (command, args, message) {
-                message.delete().catch(console.error);
-                message.channel.send(args.join(' '));
-            });
+            ModuleHandler.Add(Status);
+            ModuleHandler.Add(Say);
             return that;
         },
         UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
-            //ALWAYS clean up commands
-            that.LastStatus = undefined;
-            RemoveCommand("status", PERM.permissions.rolenames.Admin);
-            RemoveCommand("say", PERM.permissions.rolenames.Admin);
+            ModuleHandler.Remove(Status);
+            ModuleHandler.Remove(Say);
             return that;
         },
-        Status: function (add) {
-            if (that.LastStatus) {
-                add(that.LastStatus);
-            }
-            return add;
-        }
     };
     return that;
 };
-module.exports = status;
