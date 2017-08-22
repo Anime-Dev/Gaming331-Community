@@ -13,17 +13,20 @@ module.exports = function () {
                 if (cmd !== undefined){
                     message.getRichEmbed()
                     .setTitle(cmd.Name)
-                    .setDescription("Usage: " + cmd.Usage + "\r\nDescription:" + cmd.Description)
+                    .setDescription("Usage: " + cmd.Usage + "\r\nDescription: " + cmd.Description)
                     .send();
                     return;
                 }
             }
-            var mess = "you need to assign roles to be able to see channels, these roles can be added using the `$add <game>` command, list of games: `$games`.";
+            var mess = message.member + ", you need to assign roles to be able to see channels, these roles can be added using the `$add <game>` command, list of games: `$games`.";
             mess += "\r\n";
             mess += "You can also assign yourself a region (purely informative) with the `$region <region>` command, list of regions: `$regions`.";
             mess += "\r\n";
             mess += "Extra info about commands can be found using `$help <command>`, list of all commands: `$commands`.";
-            message.replyEmbed(mess);
+            message.getRichEmbed()
+            .setTitle("Help")
+            .setDescription(mess)
+            .send();
         },
     };
     var that = {
