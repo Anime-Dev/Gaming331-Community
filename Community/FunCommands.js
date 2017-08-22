@@ -122,6 +122,13 @@ module.exports = function () {
                 .send();
         }
     };
+    var blamevyo = {
+        Name: "bv",
+        Permissions: PERM.permissions.rolenames.Hosts,
+        Function: function (command, args, message) {
+            message.channel.send("Blame <@140501984141770752>");
+        }
+    };
     var that = {
         ModuleName: "Fun",
         Register: function (Add, AddCommand, ModuleHandler) {
@@ -134,6 +141,7 @@ module.exports = function () {
             ModuleHandler.Add(theclaw);
             ModuleHandler.Add(agree);
             ModuleHandler.Add(eightball);
+            ModuleHandler.Add(blamevyo);
             return that;
         },
         UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
@@ -146,6 +154,7 @@ module.exports = function () {
             ModuleHandler.Remove(theclaw);
             ModuleHandler.Remove(agree);
             ModuleHandler.Remove(eightball);
+            ModuleHandler.Remove(blamevyo);
             return that;
         },
     };
