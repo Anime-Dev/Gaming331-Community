@@ -137,8 +137,8 @@ module.exports = function () {
                 .addField("Vote", args.join(' '));
             message.channel.send({embed})
                 .then(message => {
-                    message.react("349864450435579914").catch(console.error)
-                    .then(() => message.react("349864460485263362").catch(console.error));
+                    message.react(PERM.channels.GetEmoji("greenTick")).catch(console.error)
+                    .then(() => message.react(PERM.channels.GetEmoji("redTick")).catch(console.error));
                 });
         }
     };
