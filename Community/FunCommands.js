@@ -72,7 +72,8 @@ module.exports = function () {
                 .setDescription(answer[0])
                 .setAuthor(message.author.username, message.author.avatarURL)
                 .send();
-        }
+        },
+        Channels: [PERM.channels.channelnames.botchannel]
     };
     var pantsu = {
         Name: "pantsu",
