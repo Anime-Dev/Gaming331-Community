@@ -134,8 +134,8 @@ module.exports = function () {
         Name: "vote",
         Function: function (command, args, message) {
             var embed = message.getRichEmbed()
-                .addField("Vote", args.join(' '))
-                .send()
+                .addField("Vote", args.join(' '));
+            message.channel.send({embed})
                 .then(message => {
                     message.react("349864450435579914").catch(console.error)
                     .then(() => message.react("349864460485263362").catch(console.error));
