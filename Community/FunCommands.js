@@ -133,14 +133,12 @@ module.exports = function () {
     var vote = {
         Name: "vote",
         Function: function (command, args, message) {
-            var greenTick = PERM.channels.GetEmoji(":greenTick:") +"";
-            var redTick = PERM.channels.GetEmoji(":redTick:") +"";
             var embed = message.getRichEmbed()
                 .addField("Vote", args.join(' '))
                 .send()
                 .then(message => {
-                    message.react(greenTick.slice(12,-1)).catch(console.error)
-                    .then(() => message.react(redTick.slice(10,-1)).catch(console.error));
+                    message.react("349864450435579914").catch(console.error)
+                    .then(() => message.react("349864460485263362").catch(console.error));
                 });
         }
     };
