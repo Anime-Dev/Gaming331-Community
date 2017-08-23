@@ -130,6 +130,18 @@ module.exports = function () {
             message.channel.send("Blame <@140501984141770752>");
         }
     };
+    var vote = {
+        Name: "vote",
+        Function: function (command, args, message) {
+            var embed = message.getRichEmbed()
+                .addField("Vote", args.join(' '))
+                .send()
+                .then(message => {
+                    message.react(PERM.channels.GetEmoji(":greenTick:")).catch(console.error)
+                    .then(() => message.react(PERM.channels.GetEmoji(":redTick:")).catch(console.error));
+                });
+        }
+    };
     var that = {
         ModuleName: "Fun",
         Register: function (Add, AddCommand, ModuleHandler) {
@@ -143,6 +155,7 @@ module.exports = function () {
             ModuleHandler.Add(agree);
             ModuleHandler.Add(eightball);
             ModuleHandler.Add(blamevyo);
+            ModuleHandler.Add(vote);
             return that;
         },
         UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
@@ -156,6 +169,7 @@ module.exports = function () {
             ModuleHandler.Remove(agree);
             ModuleHandler.Remove(eightball);
             ModuleHandler.Remove(blamevyo);
+            ModuleHandler.Remove(vote);
             return that;
         },
     };
