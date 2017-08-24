@@ -165,7 +165,12 @@ module.exports = function () {
         Usage: "$cookie <user>",
         Description: "gives a cookie to the mentioned user",
         Function: function (command, args, message) {
-            message.channel.send(`${message.mentions.members.first()}, ${message.member} gives you a cookie :cookie:`);
+            if (message.mentions.members.first()) {
+                message.channel.send(`${message.mentions.members.first()}, ${message.member} gives you a cookie :cookie:`);
+            }
+            else {
+                message.channel.send("You must mention a user!");
+            }
         }
     };
     var that = {
