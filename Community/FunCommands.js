@@ -160,7 +160,7 @@ module.exports = function () {
                         .setAuthor(`${message.author.username} - Neko Fact`, message.author.displayAvatarURL)
                         .setTitle("Did you know:")
                         .setDescription(JSON.parse(body).fact)
-                    message.channel.send({ embed });
+                        .send();
                 }
             });
         }
@@ -177,8 +177,8 @@ module.exports = function () {
                     var embed = message.getRichEmbed()
                         .setAuthor(message.author.username, message.author.displayAvatarURL)
                         .setImage(JSON.parse(body).file)
-                        .setTitle("Cute Neko :3");
-                    message.channel.send({ embed });
+                        .setTitle("Cute Neko :3")
+                        .send();
                 }
             });
         }
@@ -191,12 +191,12 @@ module.exports = function () {
             if (message.mentions.members.first()) {
                 var embed = message.getRichEmbed()
                     .setDescription(`${message.mentions.members.first()}, you got a super awesome cookie from **${message.author.username}** :cookie:`)
-                message.channel.send({ embed });
+                    .send();
             }
             else {
                 var embed = message.getRichEmbed()
                     .setDescription("You must mention a user!")
-                message.channel.send({ embed });
+                    .send();
             }
         }
     };
