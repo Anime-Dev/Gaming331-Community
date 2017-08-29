@@ -1,18 +1,21 @@
 var PERM = require('../Perms');
+var request = require('request');
 //var ALIAS = require('../Alias');
 //var Q = require('q');
 module.exports = function () {
-    var funpicImages = [["WoW for cats:", "https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif"],
-    ["Bert is gonna be pissed:", "https://i.pinimg.com/736x/da/76/e8/da76e8f92ffa7561bc99be733a714c57--funny-shit-funny-pics.jpg"],
-    ["Wrong spell:", "https://i.pinimg.com/736x/c1/65/02/c16502e626ed0f8c3537beec610e7ac6--funny-pets-funny-animals.jpg"],
-    ["The cat burned the charger:", "https://s-media-cache-ak0.pinimg.com/736x/f7/14/a3/f714a35f92de708f56d2aa3bd7a5edbe--evil-cats-candles.jpg"],
-    ["Keemstar has been deleted:", "http://www.maneki-neko.nl/memes/Keemstar%20deleted.jpg"],
-    ["Luckly I dont see this goat's hands:", "http://cdn.playbuzz.com/cdn/c1ffedc1-2f64-4503-8c91-689bb8c48218/8325ab64-99f2-4ce1-9da3-c98b8ae7e395.jpg"],
-    ["When u try killing a admin in a MMORPG:", "https://lh3.googleusercontent.com/-ZTy0vB70kuM/UwwQwBMmEoI/AAAAAAAAAU8/Xgo2TJlLVwY/w426-h240/angel_beats_gif_animation_4_by_black_wolf_90-d4ifmsj.gif"],
-    ["When u just jumped from a boat and the water gets drained:", "http://vignette4.wikia.nocookie.net/filthy-frank/images/a/a5/Pink_guy.gif"],
-    ["When u find out ur dog had the shits:", "http://i0.kym-cdn.com/photos/images/facebook/000/000/578/1234931504682.jpg"],
-    ["Me when i see a mirror:", "https://i.ytimg.com/vi/nlYlNF30bVg/hqdefault.jpg"],
-    ["My friend after he asked me for the dirtiest thing i know off:", "http://www.reactiongifs.com/r/mye.gif"]];
+    var funpicImages = [
+        ["WoW for cats:", "https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif"],
+        ["Bert is gonna be pissed:", "https://i.pinimg.com/736x/da/76/e8/da76e8f92ffa7561bc99be733a714c57--funny-shit-funny-pics.jpg"],
+        ["Wrong spell:", "https://i.pinimg.com/736x/c1/65/02/c16502e626ed0f8c3537beec610e7ac6--funny-pets-funny-animals.jpg"],
+        ["The cat burned the charger:", "https://s-media-cache-ak0.pinimg.com/736x/f7/14/a3/f714a35f92de708f56d2aa3bd7a5edbe--evil-cats-candles.jpg"],
+        ["Keemstar has been deleted:", "http://www.maneki-neko.nl/memes/Keemstar%20deleted.jpg"],
+        ["Luckly I dont see this goat's hands:", "http://cdn.playbuzz.com/cdn/c1ffedc1-2f64-4503-8c91-689bb8c48218/8325ab64-99f2-4ce1-9da3-c98b8ae7e395.jpg"],
+        ["When u try killing a admin in a MMORPG:", "https://lh3.googleusercontent.com/-ZTy0vB70kuM/UwwQwBMmEoI/AAAAAAAAAU8/Xgo2TJlLVwY/w426-h240/angel_beats_gif_animation_4_by_black_wolf_90-d4ifmsj.gif"],
+        ["When u just jumped from a boat and the water gets drained:", "http://vignette4.wikia.nocookie.net/filthy-frank/images/a/a5/Pink_guy.gif"],
+        ["When u find out ur dog had the shits:", "http://i0.kym-cdn.com/photos/images/facebook/000/000/578/1234931504682.jpg"],
+        ["Me when i see a mirror:", "https://i.ytimg.com/vi/nlYlNF30bVg/hqdefault.jpg"],
+        ["My friend after he asked me for the dirtiest thing i know off:", "http://www.reactiongifs.com/r/mye.gif"]
+    ];
     var eightBallAnswers = [
         "You may rely on it",
         "As I see it, yes",
@@ -137,10 +140,10 @@ module.exports = function () {
         Function: function (command, args, message) {
             var embed = message.getRichEmbed()
                 .addField("Vote", args.join(' '));
-            message.channel.send({embed})
+            message.channel.send({ embed })
                 .then(message => {
                     message.react(PERM.channels.GetEmoji("greenTick")).catch(console.error)
-                    .then(() => message.react(PERM.channels.GetEmoji("redTick")).catch(console.error));
+                        .then(() => message.react(PERM.channels.GetEmoji("redTick")).catch(console.error));
                 });
         }
     };
@@ -149,18 +152,18 @@ module.exports = function () {
         Description: "gives a fact about cats",
         Function: function (command, args, message) {
             request('https://catfact.ninja/fact', (err, res, body) => {
-              if (err) {
-                console.error('Cat Fact:', err);
-              }
-              else {
-                var embed = new Discord.RichEmbed()
-                  .setAuthor(`${message.author.username} - Neko Fact`, message.author.displayAvatarURL)
-                  .setColor(0xffd1aa)
-                  .setTitle("Did you know:")
-                  .setDescription(JSON.parse(body).fact)
-                  .setTimestamp()
-                message.channel.send({embed});
-              }
+                if (err) {
+                    console.error('Cat Fact:', err);
+                }
+                else {
+                    var embed = new Discord.RichEmbed()
+                        .setAuthor(`${message.author.username} - Neko Fact`, message.author.displayAvatarURL)
+                        .setColor(0xffd1aa)
+                        .setTitle("Did you know:")
+                        .setDescription(JSON.parse(body).fact)
+                        .setTimestamp()
+                    message.channel.send({ embed });
+                }
             });
         }
     };
@@ -169,18 +172,18 @@ module.exports = function () {
         Description: "displays an image of a cat",
         Function: function (command, args, message) {
             request('http://random.cat/meow', (err, res, body) => {
-              if (err) {
-                console.error('Cat Image:', err);
-              }
-              else {
-                var embed = new Discord.RichEmbed()
-                  .setAuthor(message.author.username, message.author.displayAvatarURL)
-                  .setColor(0xade5ea)
-                  .setImage(JSON.parse(body).file)
-                  .setTimestamp()
-                  .setTitle("Cute Neko :3");
-                message.channel.send({embed});
-              }
+                if (err) {
+                    console.error('Cat Image:', err);
+                }
+                else {
+                    var embed = new Discord.RichEmbed()
+                        .setAuthor(message.author.username, message.author.displayAvatarURL)
+                        .setColor(0xade5ea)
+                        .setImage(JSON.parse(body).file)
+                        .setTimestamp()
+                        .setTitle("Cute Neko :3");
+                    message.channel.send({ embed });
+                }
             });
         }
     };
@@ -191,15 +194,15 @@ module.exports = function () {
         Function: function (command, args, message) {
             if (message.mentions.members.first()) {
                 var embed = new Discord.RichEmbed()
-                  .setColor(0xd3ffce)
-                  .setDescription(`${message.mentions.members.first()}, you got a super awesome cookie from **${message.author.username}** :cookie:`)
-                message.channel.send({embed});
+                    .setColor(0xd3ffce)
+                    .setDescription(`${message.mentions.members.first()}, you got a super awesome cookie from **${message.author.username}** :cookie:`)
+                message.channel.send({ embed });
             }
             else {
                 var embed = new Discord.RichEmbed()
-                  .setColor(0x8A0707)
-                  .setDescription("You must mention a user!")
-                message.channel.send({embed});
+                    .setColor(0x8A0707)
+                    .setDescription("You must mention a user!")
+                message.channel.send({ embed });
             }
         }
     };
