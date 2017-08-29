@@ -190,7 +190,7 @@ module.exports = function () {
         Function: function (command, args, message) {
             if (message.mentions.members.first()) {
                 var embed = message.getRichEmbed()
-                    .setDescription(`${message.mentions.members.first()}, you got a super awesome cookie from **${message.author.username}** :cookie:`)
+                    .setDescription(`${message.mentions.members.first()}, you got a super awesome cookie from ${message.author} :cookie:`)
                     .send();
             }
             else {
