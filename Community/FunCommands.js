@@ -144,6 +144,37 @@ module.exports = function () {
                 });
         }
     };
+    var nyaaa = {
+        Name: "nyaaa",
+        Description: "gives a fact about cats",
+        Function: function (command, args, message) {
+            var catFacts = require("./catFacts.js");
+            message.channel.send("Did you know: " + catFacts[Math.round(Math.random() * catFacts.length)]);
+        }
+    };
+    var cat = {
+        Name: "cat",
+        Description: "displays an image of a cat",
+        Function: function (command, args, message) {
+            var catImages = require("./catImages.js");
+            message.channel.send(catImages[Math.round(Math.random() * catImages.length)]);
+            // Line above sends as link, line below sends as file
+            // message.channel.send({file: catImages[Math.round(Math.random() * catImages.length)]});
+        }
+    };
+    var cookie = {
+        Name: "cookie",
+        Usage: "$cookie <user>",
+        Description: "gives a cookie to the mentioned user",
+        Function: function (command, args, message) {
+            if (message.mentions.members.first()) {
+                message.channel.send(`${message.mentions.members.first()}, ${message.member} gives you a cookie :cookie:`);
+            }
+            else {
+                message.channel.send("You must mention a user!");
+            }
+        }
+    };
     var that = {
         ModuleName: "Fun",
         Register: function (Add, AddCommand, ModuleHandler) {
@@ -158,6 +189,9 @@ module.exports = function () {
             ModuleHandler.Add(eightball);
             ModuleHandler.Add(blamevyo);
             ModuleHandler.Add(vote);
+            ModuleHandler.Add(nyaaa);
+            ModuleHandler.Add(cat);
+            ModuleHandler.Add(cookie);
             return that;
         },
         UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
@@ -172,6 +206,9 @@ module.exports = function () {
             ModuleHandler.Remove(eightball);
             ModuleHandler.Remove(blamevyo);
             ModuleHandler.Remove(vote);
+            ModuleHandler.Remove(nyaaa);
+            ModuleHandler.Remove(cat);
+            ModuleHandler.Remove(cookie);
             return that;
         },
     };
