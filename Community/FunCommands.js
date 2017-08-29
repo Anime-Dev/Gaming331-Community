@@ -156,7 +156,7 @@ module.exports = function () {
                     console.error('Cat Fact:', err);
                 }
                 else {
-                    var embed = new Discord.RichEmbed()
+                    var embed = message.getRichEmbed()
                         .setAuthor(`${message.author.username} - Neko Fact`, message.author.displayAvatarURL)
                         .setColor(0xffd1aa)
                         .setTitle("Did you know:")
@@ -176,7 +176,7 @@ module.exports = function () {
                     console.error('Cat Image:', err);
                 }
                 else {
-                    var embed = new Discord.RichEmbed()
+                    var embed = message.getRichEmbed()
                         .setAuthor(message.author.username, message.author.displayAvatarURL)
                         .setColor(0xade5ea)
                         .setImage(JSON.parse(body).file)
@@ -193,13 +193,13 @@ module.exports = function () {
         Description: "gives a cookie to the mentioned user",
         Function: function (command, args, message) {
             if (message.mentions.members.first()) {
-                var embed = new Discord.RichEmbed()
+                var embed = message.getRichEmbed()
                     .setColor(0xd3ffce)
                     .setDescription(`${message.mentions.members.first()}, you got a super awesome cookie from **${message.author.username}** :cookie:`)
                 message.channel.send({ embed });
             }
             else {
-                var embed = new Discord.RichEmbed()
+                var embed = message.getRichEmbed()
                     .setColor(0x8A0707)
                     .setDescription("You must mention a user!")
                 message.channel.send({ embed });
