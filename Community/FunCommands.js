@@ -148,18 +148,40 @@ module.exports = function () {
         Name: "nyaaa",
         Description: "gives a fact about cats",
         Function: function (command, args, message) {
-            var catFacts = require("./catFacts.js");
-            message.channel.send("Did you know: " + catFacts[Math.round(Math.random() * catFacts.length)]);
+            request('https://catfact.ninja/fact', (err, res, body) => {
+              if (err) {
+                console.error('Cat Fact:', err);
+              }
+              else {
+                var embed = new Discord.RichEmbed()
+                  .setAuthor(`${message.author.username - Neko Fact}`, message.author.displayAvatarURL)
+                  .setColor(0xffd1aa)
+                  .setTitle("Did you know:")
+                  .setDescription(JSON.parse(body).fact)
+                  .setTimestamp()
+                message.channel.send({embed});
+              }
+            });
         }
     };
     var cat = {
         Name: "cat",
         Description: "displays an image of a cat",
         Function: function (command, args, message) {
-            var catImages = require("./catImages.js");
-            message.channel.send(catImages[Math.round(Math.random() * catImages.length)]);
-            // Line above sends as link, line below sends as file
-            // message.channel.send({file: catImages[Math.round(Math.random() * catImages.length)]});
+            request('http://random.cat/meow', (err, res, body) => {
+              if (err) {
+                console.error('Cat Image:', err);
+              }
+              else {
+                var embed = new Discord.RichEmbed()
+                  .setAuthor(message.author.username, message.author.displayAvatarURL)
+                  .setColor(0xade5ea)
+                  .setImage(JSON.parse(body).file)
+                  .setTimestamp()
+                  .setTitle("Cute Neko :3");
+                message.channel.send({embed});
+              }
+            });
         }
     };
     var cookie = {
@@ -168,10 +190,16 @@ module.exports = function () {
         Description: "gives a cookie to the mentioned user",
         Function: function (command, args, message) {
             if (message.mentions.members.first()) {
-                message.channel.send(`${message.mentions.members.first()}, ${message.member} gives you a cookie :cookie:`);
+                var embed = new Discord.RichEmbed()
+                  .setColor(0xd3ffce)
+                  .setDescription(`${message.mentions.members.first()}, you got a super awesome cookie from **${message.author.username}** :cookie:`)
+                message.channel.send({embed});
             }
             else {
-                message.channel.send("You must mention a user!");
+                var embed = new Discord.RichEmbed()
+                  .setColor(0x8A0707)
+                  .setDescription("You must mention a user!")
+                message.channel.send({embed});
             }
         }
     };
