@@ -154,7 +154,7 @@ module.exports = function () {
               }
               else {
                 var embed = new Discord.RichEmbed()
-                  .setAuthor(`${message.author.username - Neko Fact}`, message.author.displayAvatarURL)
+                  .setAuthor(`${message.author.username} - Neko Fact`, message.author.displayAvatarURL)
                   .setColor(0xffd1aa)
                   .setTitle("Did you know:")
                   .setDescription(JSON.parse(body).fact)
