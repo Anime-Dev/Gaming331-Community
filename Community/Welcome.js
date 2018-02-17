@@ -42,7 +42,8 @@ module.exports = function () {
                     .then(message => message.delete(500).catch(console.error));
                 var welcomeEmbed = Handler.getRichEmbed()
                     .setTitle("Welcome!")
-                    .setDescription(member + ", to see the game channels you need to have the correct roles (`$add <game>`), these will also be used to announce our events. Be sure to read " + PERM.channels.GetChannel("information") + " to get you started here, we hope you enjoy your stay!")
+                    .setDescription(member + ", this server works with a special system, to access the game channels you need to have the correct roles (`$add <game>`). Be sure to read " + PERM.channels.GetChannel("information") + " to get you started here, you can always get more help from me (`$help`) or ask a staff member. We hope you enjoy your stay!")
+                    //.setDescription(member + ", to see the game channels you need to have the correct roles (`$add <game>`), these will also be used to announce our events. Be sure to read " + PERM.channels.GetChannel("information") + " to get you started here, we hope you enjoy your stay!")
                     .send(PERM.channels.GetChannel("general"));
             }
         }
