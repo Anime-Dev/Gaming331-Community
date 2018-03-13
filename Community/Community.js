@@ -3,6 +3,7 @@ var Q = require('q');
 //var Sample = require('Sample');
 var Fun = require('./FunCommands');
 var Help = require('./Help');
+var Host = require('./Host');
 var Welcome = require('./Welcome');
 var Status = require('./Status');
 var Explosm = require('./Explosm');
@@ -20,11 +21,12 @@ module.exports = function () {
 
             //register the module here after require'ing
             //RegisterModule(Sample());
+            RegisterModule(Explosm());
             RegisterModule(Fun());
             RegisterModule(Help());
-            RegisterModule(Welcome());
+            RegisterModule(Host());
             RegisterModule(Status());
-            RegisterModule(Explosm());
+            RegisterModule(Welcome());
 
 
             return that;
