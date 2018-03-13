@@ -49,7 +49,8 @@ module.exports = function () {
         "Signs point to no",
         "Not sure about that one :eyes:",
         "What, no...",
-        "Sure, sure..."
+        "Sure, sure...",
+        "Wiskey... Tango... Foxtrot..."
     ];
     var pet = {
         Name: "pet",
@@ -135,6 +136,13 @@ module.exports = function () {
             message.channel.send("Blame <@140501984141770752>");
         }
     };
+    var blameanime = {
+        Name: "ba",
+        Permissions: PERM.permissions.rolenames.Hosts,
+        Function: function (command, args, message) {
+            message.channel.send("Blame <@140501984141770752>");
+        }
+    };
     var vote = {
         Name: "vote",
         Function: function (command, args, message) {
@@ -202,40 +210,7 @@ module.exports = function () {
     };
     var that = {
         ModuleName: "Fun",
-        Register: function (Add, AddCommand, ModuleHandler) {
-            ModuleHandler.Add(pet);
-            ModuleHandler.Add(cs);
-            ModuleHandler.Add(funpic);
-            ModuleHandler.Add(pantsu);
-            ModuleHandler.Add(ping);
-            ModuleHandler.Add(hug);
-            ModuleHandler.Add(theclaw);
-            ModuleHandler.Add(agree);
-            ModuleHandler.Add(eightball);
-            ModuleHandler.Add(blamevyo);
-            ModuleHandler.Add(vote);
-            ModuleHandler.Add(nyaaa);
-            ModuleHandler.Add(cat);
-            ModuleHandler.Add(cookie);
-            return that;
-        },
-        UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
-            ModuleHandler.Remove(pet);
-            ModuleHandler.Remove(cs);
-            ModuleHandler.Remove(funpic);
-            ModuleHandler.Remove(pantsu);
-            ModuleHandler.Remove(ping);
-            ModuleHandler.Remove(hug);
-            ModuleHandler.Remove(theclaw);
-            ModuleHandler.Remove(agree);
-            ModuleHandler.Remove(eightball);
-            ModuleHandler.Remove(blamevyo);
-            ModuleHandler.Remove(vote);
-            ModuleHandler.Remove(nyaaa);
-            ModuleHandler.Remove(cat);
-            ModuleHandler.Remove(cookie);
-            return that;
-        },
+        Commands: [pet, cs, funpic, pantsu, ping, hug, theclaw, agree, eightball, blamevyo, vote, nyaaa, cat, cookie]
     };
     return that;
 };

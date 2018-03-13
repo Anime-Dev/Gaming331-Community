@@ -31,14 +31,7 @@ module.exports = function () {
     };
     var that = {
         ModuleName: "Help",
-        Register: function (Add, AddCommand, ModuleHandler) {
-            ModuleHandler.Add(help);
-            return that;
-        },
-        UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
-            ModuleHandler.Remove(help);
-            return that;
-        },
+        Commands: [help]
     };
     return that;
 };

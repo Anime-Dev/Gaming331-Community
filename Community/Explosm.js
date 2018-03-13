@@ -2,8 +2,8 @@ var PERM = require('../Perms');
 var request = require('request');
 var Q = require('q');
 
-var imagefinder = /<img id="main-comic" src="([^"]+)"\/>/g;
-var idfinder = /<input id="permalink"[^>]+value="http:\/\/explosm\.net\/comics\/([0-9]+)/g
+var imagefinder = /<img id="main-comic" src="([^"]+)"\/?>/g;
+var idfinder = /<input id="permalink" value="http:\/\/explosm\.net\/comics\/([0-9]+)/g
 
 module.exports = function () {
 
@@ -60,14 +60,7 @@ module.exports = function () {
     };
     var that = {
         ModuleName: "Explosm",
-        Register: function (Add, AddCommand, ModuleHandler) {
-            ModuleHandler.Add(explosm);
-            return that;
-        },
-        UnRegister: function (Remove, RemoveCommand, ModuleHandler) {
-            ModuleHandler.Remove(explosm);
-            return that;
-        },
+        Commands: [explosm]
     };
     return that;
 };
