@@ -129,20 +129,6 @@ module.exports = function () {
                 .send();
         }
     };
-    var blamevyo = {
-        Name: "bv",
-        Permissions: PERM.permissions.rolenames.Hosts,
-        Function: function (command, args, message) {
-            message.channel.send("Blame <@140501984141770752>");
-        }
-    };
-    var blameanime = {
-        Name: "ba",
-        Permissions: PERM.permissions.rolenames.Hosts,
-        Function: function (command, args, message) {
-            message.channel.send("Blame <@140501984141770752>");
-        }
-    };
     var vote = {
         Name: "vote",
         Function: function (command, args, message) {
@@ -210,7 +196,7 @@ module.exports = function () {
     };
     var that = {
         ModuleName: "Fun",
-        Commands: [pet, cs, funpic, pantsu, ping, hug, theclaw, agree, eightball, blamevyo, vote, nyaaa, cat, cookie]
+        Commands: [pet, cs, funpic, pantsu, ping, hug, theclaw, agree, eightball, vote, nyaaa, cat, cookie]
     };
     return that;
 };

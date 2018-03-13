@@ -32,9 +32,23 @@ module.exports = function () {
             message.channel.send("Command not found");
         }
     };
+    var blamevyo = {
+        Name: "bv",
+        Permissions: PERM.permissions.rolenames.Hosts,
+        Function: function (command, args, message) {
+            message.channel.send("Blame <@140501984141770752>");
+        }
+    };
+    var blameanime = {
+        Name: "ba",
+        Permissions: PERM.permissions.rolenames.Hosts,
+        Function: function (command, args, message) {
+            message.channel.send("Blame <@140501984141770752>");
+        }
+    };
     var that = {
         ModuleName: "Host",
-        Commands: [Say, invoke]
+        Commands: [Say, invoke, blamevyo, blameanime]
     };
     return that;
 };
