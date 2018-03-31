@@ -43,7 +43,7 @@ module.exports = function () {
         Name: "ba",
         Permissions: PERM.permissions.rolenames.Hosts,
         Function: function (command, args, message) {
-            message.channel.send("Blame <@140501984141770752>");
+            message.channel.send("Blame <@188714736362323968>");
         }
     };
     var that = {
